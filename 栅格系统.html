@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      .row div {
+        height: 100px;
+        background: #0f0;
+        border: 1px solid #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3">xl为超大屏,屏幕宽度 >= 1200px,容器的宽度固定为1140px,一行可以设置12列;当屏幕尺寸 < 1200px的时候,一行只能设置1列</div>
+        <div class="col-xl-3"></div>
+        <div class="col-xl-3"></div>
+        <div class="col-xl-3"></div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-4">lg为大屏,屏幕宽度 >= 992px,容器的宽度固定为960px,一行可以设置12列;当屏幕尺寸 < 992px的时候,一行只能设置1列</div>
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"></div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-6">md为中等屏,屏幕宽度 >= 768px,容器的宽度固定为720px,一行可以设置12列;当屏幕尺寸 < 768px的时候,一行只能设置1列</div>
+        <div class="col-md-6"></div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-sm-3">sm为小屏,屏幕宽度 >= 576px,容器的宽度固定为540px,一行可以设置12列;当屏幕尺寸 < 576px的时候,一行只能设置1列</div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-4">col为超小屏,屏幕宽度 < 576px,一行永远可以设置12列</div>
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+      </div>
+      <!-- 设置等宽,平衡宽度,通过.col的class设置 -->
+      <div class="row">
+        <div class="col">等宽列</div>
+        <div class="col">等宽列</div>
+        <div class="col">等宽列</div>
+        <div class="col">等宽列</div>
+      </div>
+      <!-- 设置多行等宽列,在希望断开的地方添加一个.w-100的class,能够让后面的列换行-->
+      <div class="row">
+        <div class="col">等宽列1</div>
+        <div class="col">等宽列2</div>
+        <!-- 因为前面统一对div设置样式了所以需要去掉 -->
+        <div class="w-100" style="height: auto; border: none;"></div>
+        <div class="col">等宽列3</div>
+        <div class="col">等宽列4</div>
+      </div>
+    </div>
+  </body>
+</html>
