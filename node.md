@@ -1,28 +1,190 @@
-# Bootstrap官方地址https://getbootstrap.com/
+# Bootstrap 响应式原理
 
-**Bootstrap可以快速构建响应式网站，所谓响应式就是同一个网站模板在不同终端设备中显示的内容都是相同。**
+## 响应式具有的特点
 
-目前,大多数网站使用的Bootstrap的版本是3.3.7跟目前最新的4版本之间是有差异的，但核心内容不变。
+- 1.网页的宽度自动调整
+- 2.尽量少用绝对宽度
+- 3.字体要使用 rem、em 作为单位(其中,主要使用 rem,rem 表示根节点字体的大小,在 HTML 中的根节点(:root)是 html)
+- 4.布局要使用浮动或弹性布局(其中,3 版本 Bootstrap 布局使用浮动,也就是流式布局;4 版本 Bootstrap 布局使用弹性布局)
+  Bootstrap 实现响应式的效果主要依靠媒体查询
 
-**Bootstrap3版本和4版本之间的主要区别在于一些样式类名上的改变、浏览器的兼容性,主要关注IE浏览器，在3版本中能支持IE8(除了border-radius、box-shadow、transform、transition和placeholder这5个css3属性不支持),而4版本支持的IE最低版本是IE10，所以需要工作环境选用不同版本的Bootstrap版本。**
+## 媒体查询
 
-使用Bootstrap可以通过下载到本地，然后在页面中引入或者通过引入CDN
-介绍3版本Bootstrap官网中下载的Bootstrap内容(https://getbootstrap.com/docs/3.3/getting-started/)
-Download Bootstrap表示下载的Bootstrap是经过压缩处理,不包含任何文档或原始源文件。
-Download source表示下载的Bootstrap里面包含源less、文档等核心描述文件,可以通过修改源less来改变Bootstrap。
-Download Sass表示当前项目使用Sass预处理语言就可以下载此版本的Bootstrap。
-4版本Bootstrap中使用的JS文件需要使用到jquery，但Bootstrap没有包含JS文件，所以需要自动添加。
+- 定义：根据一个或多个基于设备类型、具体特点和环境来应用样式
+- css 中的@规则
+  - @charset 定义编码
+  - @import 引入 css 文件(css 模块化)
+  - @font-face 自定义字体
+  - @keyframes animation 关键字
+  - @media 媒体查询
 
-# CND的引入
+## 媒体查询的使用
+
+* 在 css 文件中使用@media 媒体类型、媒体功能
 ```
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+@media screen and (max-width: 300px) {
+    body {
+        background-color: lightblue;
+    }
+}
 ```
-其中crossorigin和integrity两个属性是为了保证安全,corssoring是发送一个跨域请求,integrity的值是经过加密的hash值，发送请求时会将hash值带上,服务器收到请求后会查看是否匹配hash值,如果匹配服务器才会响应,如果不匹配服务器可以拒绝响应。
+* 在 @import 中使用@media
+```
+@import url('css/index.js')(min-width: 200px);
+```
+* 在link标签中使用@media
+```
+<link rel="stylesheet" href="css/bootstrap.css" media="all">
+```
 
+## 媒体查询的内容
+* w3c官方网站：https://drafts.csswg.org/mediaqueries
+
+### 媒体类型
+- all：表示所有设备
+- print：表示打印机设备
+- screen：表示彩色的电脑屏幕
+- speech：表示听觉设备(针对有视力障碍的人士,可以把页面的内容以语音的方式呈现的设备)
+**注意：tty、tv、projection、handheld、braille、embossed、aural等几种类型在媒体查询4中已经废弃**
 ```
-<meta name="viewport" content="width=devive-width, initial-scale=1, shrink-to-fit=0">
+<style>
+div{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+}
+@media screen{
+    div{
+        background-color: #f40;
+    }
+}
+</style>
+
+<div>媒体类型</div>
 ```
-设置移动端设备的宽度,其中4版本Bootstrap比3版本Bootstrap多出一条属性shrink-to-fit=0;这一条主要是针对iso 9
+### 常用媒体特性
+* width 宽度
+  - min-width 最小宽度、宽度只能比这个大
+  - max-width 最大宽度、宽度只能比这个小
+* height 高度
+  - min-height 最小高度、高度只能比这个大
+  - max-height 最大高度、高度只能比这个小
+* orientation 方向
+  - landscape 横屏(宽度大于高度)
+  - portrait 竖屏(高度大于宽度)
+* aspect-ratio 宽度比
+  - -webkit-device-pixel-ratio 像素比(webkit内核的私有属性)
+```
+<div>媒体类型</div>
+
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+    @media (max-width: 500px) {
+        div{
+            background-color: #f40;
+        }
+    }
+    <!-- 宽高比例为4:3的是否满足,例如800*600 -->
+    @media (aspect-ratio: 4/3){
+        div{
+            border: 10px solid #000;
+        }
+    }
+</style>
+```
+
+### 逻辑运算符(用来做条件判断)
+* and 合并多个媒体类型(并且的意思)
+* , 匹配某个媒体查询(或者的意思)
+* not 对媒体查询结果取反,not运算符必须要两个条件以上才能使用
+* only 仅在媒体查询匹配成功后应用样式(防范老旧浏览器,旧的浏览器可能不支持媒体查询,如果设置了媒体查询会导致没有满足媒体查询同样使用样式,为了防止此种情况可以加上only,仅在媒体查询匹配成功后应用样式)
+```
+<div>媒体类型</div>
+
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+    @media all and (min-width: 500px) and (orientation: landscape) {
+        div{
+            background-color: #f40;
+        }
+    }
+    @media (max-width: 800px), (orientation: landscape){
+        div{
+            background-color: pink;
+        }
+    }
+    @media not all and (max-widht: 800px){
+        div{
+            background-color: springgreen;
+        }
+    }
+    @media only screen and (min-width: 1000px){
+        div{
+           background-color: silver;
+        }
+    }
+</style>
+```
+
+## 响应式的应用
+```
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+
+<style>
+    body {
+        margin: 0;
+    }
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        float: left;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 100px;
+    }
+    body::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    @media screen and (max-width: 500px) {
+        div {
+          width: 100%;
+        }
+    }
+    @media screen and (min-width: 500px) {
+        div {
+          width: 50%;
+        }
+    }
+    @media screen and (min-width: 700px) {
+        div {
+          width: 33.33%;
+        }
+    }
+    @media screen and (min-width: 900px) {
+        div {
+          width: 25%;
+        }
+    }
+    @media screen and (min-width: 1100px) {
+        div {
+          width: 20%;
+        }
+    }
+</style>
+```
