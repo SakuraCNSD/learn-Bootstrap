@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <img
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593532915721&di=cd2fb4ca9fad3bc7cbb0c7ca7caba791&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F11%2F20150211214842_mWR8d.png"
+      alt="Responsive image"
+      class="img-fluid"
+    />
+
+    <img
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593532915721&di=cd2fb4ca9fad3bc7cbb0c7ca7caba791&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F11%2F20150211214842_mWR8d.png"
+      alt="缩略图"
+      class="img-thumbnail"
+    />
+
+    <img
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593532915721&di=cd2fb4ca9fad3bc7cbb0c7ca7caba791&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F11%2F20150211214842_mWR8d.png"
+      alt="圆角图片"
+      class="rounded img-fluid"
+    />
+
+    <div class="container">
+      <div class="row mt-5">
+        <!-- 图片自己对齐通过浮动float-left和float-right类名 -->
+        <div class="col">
+          <img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593532915721&di=cd2fb4ca9fad3bc7cbb0c7ca7caba791&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F11%2F20150211214842_mWR8d.png"
+            alt=""
+            height="200px"
+            class="float-left"
+          />
+          <img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593532915721&di=cd2fb4ca9fad3bc7cbb0c7ca7caba791&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F11%2F20150211214842_mWR8d.png"
+            alt=""
+            height="200px"
+            class="float-right"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row mt-5 text-left">
+        <div class="col">
+          <!-- 通过父级调整对齐,使用文本对齐方式,添加text-center、text-left或text-right类名 -->
+          <img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593532915721&di=cd2fb4ca9fad3bc7cbb0c7ca7caba791&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F11%2F20150211214842_mWR8d.png"
+            alt=""
+            height="200px"
+          />
+          <img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593532915721&di=cd2fb4ca9fad3bc7cbb0c7ca7caba791&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F11%2F20150211214842_mWR8d.png"
+            alt=""
+            height="200px"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row mt-5">
+        <!-- 给图片添加d-block先变成block元素,在使用mx-auto设置margin: 0 auto -->
+        <div class="col">
+          <img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593532915721&di=cd2fb4ca9fad3bc7cbb0c7ca7caba791&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F11%2F20150211214842_mWR8d.png"
+            alt=""
+            height="200px"
+            class="d-block mx-auto"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row mt-5">
+        <picture>
+          <source
+            media="(min-width: 1200px)"
+            srcset="
+              https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593532915721&di=cd2fb4ca9fad3bc7cbb0c7ca7caba791&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201502%2F11%2F20150211214842_mWR8d.png
+            "
+          />
+          <source
+            media="(min-width: 992px)"
+            srcset="
+              https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593535559156&di=f47f00201303de0c388a428de3e5592c&imgtype=0&src=http%3A%2F%2Fimg.boqiicdn.com%2FData%2FBK%2FA%2F1409%2F5%2Fimg64991409897999.jpg
+            "
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593535833891&di=a5f770d1136c30e1e6af738bc8155857&imgtype=0&src=http%3A%2F%2Fdik.img.kttpdq.com%2Fpic%2F40%2F27835%2F3eaed79cd11788ce_1366x768.jpg
+            "
+          />
+          <source
+            media="(min-width: 576px)"
+            srcset="
+              https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593535875546&di=78214675d7dce83fba61908389161a6a&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Ffront%2F496%2Fw640h656%2F20180829%2FNLqa-hikcahf2392709.jpg
+            "
+          />
+          <!-- 当屏幕尺寸小于576px时显示该图片 -->
+          <img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593535730162&di=fab10e11d950ef6028b556cc36f3fa26&imgtype=0&src=http%3A%2F%2Fimg.wenjiwu.com%2Flife%2F201706%2F16-1F603110337.jpg"
+            alt=""
+          />
+        </picture>
+      </div>
+    </div>
+  </body>
+</html>
