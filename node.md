@@ -1,298 +1,178 @@
-# 栅格系统-2
+# 重置、排版、代码
 
-## use Grid system
-```
-<div class="container">
-    <!-- 设置一个列宽,剩下的自动平分,使用.col,通常.col是用来均分剩余宽度 -->
-    <div class="row mt-5">
-        <div class="col-sm-7">在小屏幕下占7列</div>
-        <div class="col">自动平分剩余宽度</div>
-        <div class="col">自动平分剩余宽度</div>
-    </div>
-    <!-- 设置根据内容调整列的宽度,使用.col-{breakpoint}-auto -->
-    <div class="row mt-5">
-        <div class="col-md-auto">在中等屏幕下由内容撑开宽度</div>
-        <div class="col">自动平分剩余的宽度</div>
-        <div class="col-lg-2">在大屏下占2列</div>
-    </div>
-    <!-- 设置所有尺寸下,都占同样的列数,使用.col-* -->
-    <div class="row">
-        <div class="col-8">所有尺寸都占8列</div>
-        <div class="col-4">所有尺寸都占4列</div>
-    </div>
-</div>
+## 重置
+* 在Bootstrap3中虽然已经存在,但是没有像Bootstrap4中有文档说明
+* 重置的原因
+  - 更新部分浏览器的预设值,在可变动的文字间距上使用rem代替em
+  - 避免margin-top垂直边缘可能发生重叠,产生无法预料的错误,更重要的是margin应该是单向,简单的思维
+  - 为了设备之间轻松缩放,block元素应当在margin上采用rem
+  - 尽可能使用继承将字体相关属性的声明保持在最低限度
 
-.row div {
-    height: 100px;
-    background: #0f0;
-    border: 1px solid #000;
-    color: #fff;
-}
-```
+* 引入Bootstrap4的CSS文件后,会对一些元素的样式进行重置或者增加一些预设值,下面就一一介绍
+  - Bootstarp通过:root给html标签上声明变量,格式```--变量名: 变量值```,并将所有标签、伪元素都变成怪异盒模型```*, ::after, ::before : { box-sizing: border-box; }```提供给html标签内元素使用
+    ![html预设值](./image/html预设值.png)
+  - 如何使用html标签声明的变量
+    ```
+    <div class="testval"></div>
 
-## Mixed arrangement or combination mode(混合排列或组合模式)
-* 例子
-```
-<div class="container">
-    <!-- 1.超大屏幕下,行显示6个div,一个div占2列 2.大屏幕下,一行显示4个div,一个div占2列 3.中等屏幕下,一行占3个div,一个div占4列 4.在小屏幕下,一行显示2个div,一个div占6列 5.超小屏幕下,一行显示1个div,一个div占12列 -->
-    <div class="row">
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">超大屏6,大屏4个,中等屏3,小屏2个,超小屏1个</div>
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">超大屏6,大屏4个,中等屏3,小屏2个,超小屏1个</div>
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">超大屏6,大屏4个,中等屏3,小屏2个,超小屏1个</div>
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">超大屏6,大屏4个,中等屏3,小屏2个,超小屏1个</div>
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">超大屏6,大屏4个,中等屏3,小屏2个,超小屏1个</div>
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">超大屏6,大屏4个,中等屏3,小屏2个,超小屏1个</div>
-    </div>
-</div>
+    .testval{
+        width: 100px;
+        height: 100px;
+        background: var(--blue);
+    }
+    ```
+  - body标签的样式重置
+    ![body标签样式重置](./image/body标签样式重置.png)
+  - 标题和段落的样式重置
+    ![标题标签的样式重置](./image/标题标签的样式重置.png)
+    ![段落标签的样式重置](./image/段落标签的样式重置.png)
+  - 列表标签的样式重置  
+    ![列表标签的样式重置](./image/列表标签的样式重置.png)
+    ![dt标签的样式重置](./image/dt标签的样式重置.png)
+    ![dd标签的样式重置](./image/dd标签的样式重置.png)  
+    **细节：其中li标签里面能嵌套ul标签,嵌套的ul标签的margin-bottom为0**
+  - pre标签的样式重置(通常标签的内容里面的空格不会显示在页面,而在pre标签的内容里面的空格可以正常显示)
+    ![pre标签的样式重置](./image/pre标签的样式重置.png)
+  - table标签的样式重置  
+    ![table标签的样式重置](./image/table标签的样式重置.png)
+    ![caption标签的样式重置](./image/caption标签的样式重置.png)  
+    **table标签中除了caption标签(table标签中的标题标签)从表格头被放到表格尾,其他基本没有变化**
+  - 表单标签的样式重置  
+    ![fieldset标签的样式重置](./image/fieldset标签的样式重置.png)
+    ![label标签的样式重置](./image/label标签的样式重置.png)
+    ![input标签的样式重置](./image/input标签的样式重置.png)
+    ![button标签的样式重置](./image/button标签的样式重置.png)
+    ![select标签的样式重置](./image/select标签的样式重置.png)
+    ![textarea标签的样式重置](./image/textarea标签的样式重置.png)  
+* 上面展示的标签为常用标签,还有其他一些标签可以参考官方文档
 
-.row div {
-    height: 100px;
-    background: #0f0;
-    border: 1px solid #000;
-    color: #fff;
-}
-```
+## 排版
+  - 标题  
+  ![标题标签的样式重置](./image/标题标签的样式重置.png)
+  - 提供标题的相应类名
+  ```
+    <h1>陈学辉</h1>
+    <h2>陈学辉</h2>
+    <h3>陈学辉</h3>
+    <h4>陈学辉</h4>
+    <h5>陈学辉</h5>
+    <h6>陈学辉</h6>
+    <p class="h1">陈学辉</p>
+    <p class="h2">陈学辉</p>
+    <p class="h3">陈学辉</p>
+    <p class="h4">陈学辉</p>
+    <p class="h5">陈学辉</p>
+    <p class="h6">陈学辉</p>
+  ```
+  - 定制标题样式(标题里面还提供一个small标签来设置副标题)
+  ```
+    <h3>
+      这是一个标题
+      <small class="text-muted">这是一个副标题</small>
+    </h3>
+  ```
+  - 超大标题(通过给标题添加display-1到display-4之间的类名)
+  ```
+    <h1>陈学辉</h1>
+    <h1 class="display-1">陈学辉</h1>
+    <h1 class="display-2">陈学辉</h1>
+    <h1 class="display-3">陈学辉</h1>
+    <h1 class="display-4">陈学辉</h1>
+  ```
+  - 引言(通过给标签添加.lead来添加引言内容,字体比标题小一些,但比段落大)
+  ```
+    <p class="lead">我们的宗旨是为人民服务</p>
+    <p>我们的宗旨是为人民服务</p>
+  ```
+  - 内联文本
+  ```
+    <p>你可以使用mark标签来标记<mark>重点</mark>词汇</p>
+    <!-- Bootstrap3中有u标签和s标签显示效果和del和ins标签一样,但尽量不要使用u和s标签，虽然Bootsrap4中也有,但是还是使用del和ins代替效果都一样,u和s标签后面会被淘汰的 -->
+    <p><del>这是一段被删除的文本</del><ins>这是一段新插入进去的文本</ins></p>
+    <p><small>这段文本的字体会小</small></p>
+    <p><strong>这里是加粗的文本</strong></p>
+    <p><em>这里是倾斜的文本</em></p>
+    <p><span class="mark">用.mark代替mark标签,</span><span class="small">用.small代替small标签</span></p>
+  ```
+  - 缩写
+  ```
+    <p><abbr title="attribute">attr</abbr></p>
+    <!-- 类名initialism可以让字体变得小一点 -->
+    <p><abbr title="HypperText Markup Language" class="initialism">HTML</abbr></p>
+  ```
+  - 引用和署名
+  ```
+    <blockquote class="blockquote">
+      <p>时间就像海绵里的水,只要愿挤,总还是有的</p>
+      <footer class="blockquote-footer">
+          来自
+          <cite title="Source Title">鲁迅</cite>
+      </footer>
+    </blockquote>
+  ```
+  - 对齐(通过给元素添加类名text-center、text-left和text-right,默认值text-left)
+  ```
+    <p class="text-center">不知道为什么,每次过安检的时候过不去,好郁闷!为什么?因为他们说,我的心里装了一个你!</p>
+    <p class="text-left">不知道为什么,每次过安检的时候过不去,好郁闷!为什么?因为他们说,我的心里装了一个你!</p>
+    <p class="text-right">不知道为什么,每次过安检的时候过不去,好郁闷!为什么?因为他们说,我的心里装了一个你!</p>
+  ```
+  - 列表
+    - 无特效列表
+    ```
+    <!-- 清除li的list-style样式 -->
+    <ul class="list-unstyled">
+      <li>red</li>
+      <li>
+        <!-- li标签嵌套列表外部ul设置的样式失效,需要重新给嵌套的ul标签添加 -->
+        <ul class="list-unstyled">
+          <li>blue</li>
+        </ul>
+      </li>
+    </ul>
+    ```
+    - 行内列表
+    ```
+    <!-- list-inline配合list-inline-item让ul标签里面所有li都在一行 -->
+    <ul class="list-inline">
+      <!-- Bootstrap3的版本是不需要在li身上添加list-inline-item,只要ul有list-inline,ul标签内所有li都在一行 -->
+      <li class="list-inline-item">red</li>
+      <li class="list-inline-item">blue</li>
+      <li class="list-inline-item">green</li>
+    </ul>
+    ```
+    - 描述内容的对齐
+    ```
+    <!-- 结合栅格系统实现左边是标题,右边是详细解释;实现标题和解析在不同尺寸屏幕显示不同样式 -->
+    <div class="container-fluid">
+        <dl class="row">
+            <!-- text-truncate类名让超出的内容省略,使用...替换;在Bootstrap3的版本里使用的是text-overflow -->
+            <dt class="col-sm-3 text-truncate">矮,矮得不要不要得,矮得不要不要得</dt>
+            <dd class="col-sm-9">矮，汉语常用字，读作ǎi，最早见于秦代小篆，其本义是身材短，即《说文解字》：“矮，短人也。”后引申为低、不高的、等级地位低、卑下的等义。</dd>
+        </dl>
+    </div>
+    ```
 
-## Grid system alignment
-* 垂直对齐
-  - 1.行的对齐方式
-    - align-items-start 顶对齐
-    - align-items-center 中间对齐
-    - align-items-end 底对齐
-  - 2.列的单独对齐方式
-    - align-self-start 顶对齐
-    - align-self-center 中间对齐
-    - align-self-end 底对齐
-* 水平对齐
-  - 1.justify-content-start 左对齐
-  - 2.justify-content-center 居中对齐
-  - 3.justify-content-end 右对齐
-  - 4.justify-content-around 分散居中对齐(每个元素两侧的间距是相等的)
-  - 5.justify-content-between 左右两端对齐(元素之间的间距是自动平分的)
-**Bootstrap3 使用流式布局所以没有对齐方式**
-```
-<div class="container">
-    <!-- 垂直对齐 -->
-    <!-- 默认值是align-items-start -->
-    <div class="row v-align align-items-start">
-        <div class="col">垂直对齐-顶部对齐-行的对齐方式</div>
-        <div class="col">垂直对齐-顶部对齐-行的对齐方式</div>
-        <div class="col">垂直对齐-顶部对齐-行的对齐方式</div>
-    </div>
-    <div class="row v-align align-items-center">
-        <div class="col">垂直对齐-中间对齐-行的对齐方式</div>
-        <div class="col">垂直对齐-中间对齐-行的对齐方式</div>
-        <div class="col">垂直对齐-中间对齐-行的对齐方式</div>
-    </div>
-    <div class="row v-align align-items-end">
-        <div class="col">垂直对齐-底部对齐-行的对齐方式</div>
-        <div class="col">垂直对齐-底部对齐-行的对齐方式</div>
-        <div class="col">垂直对齐-底部对齐-行的对齐方式</div>
-    </div>
-    <div class="row v-align ">
-        <!-- 默认值是align-self-start -->
-        <div class="col align-self-start">垂直对齐-底部对齐-行的对齐方式</div>
-        <div class="col align-self-center">垂直对齐-底部对齐-行的对齐方式</div>
-        <div class="col align-self-end">垂直对齐-底部对齐-行的对齐方式</div>
-    </div>
-    <!-- 水平对齐 -->
-    <div class="row v-align justify-content-start">
-        <div class="col-4">水平对齐-左对齐</div>
-        <div class="col-4">水平对齐-左对齐</div>
-    </div>
-    <div class="row v-align justify-content-center">
-        <div class="col-4">水平对齐-居中对齐</div>
-        <div class="col-4">水平对齐-居中对齐</div>
-    </div>
-    <div class="row v-align justify-content-end">
-        <div class="col-4">水平对齐-右中对齐</div>
-        <div class="col-4">水平对齐-右中对齐</div>
-    </div>
-    <div class="row v-align justify-content-around">
-        <div class="col-4">水平对齐-分散居中对齐</div>
-        <div class="col-4">水平对齐-分散居中对齐</div>
-    </div>
-    <div class="row v-align justify-content-between">
-        <div class="col-4">水平对齐-左右两端对齐</div>
-        <div class="col-4">水平对齐-左右两端对齐</div>
-    </div>
-</div>
-
-.row div {
-    height: 100px;
-    background: #0f0;
-    border: 1px solid #000;
-    color: #fff;
-}
-.v-align{
-    height: 100px;
-    background: rgba(255, 0, 0, 0.1);
-    margin: 10px -15px;
-}
-.v-align div{
-    height: 40px;
-    line-height: 40px;
-    background: rgba(86, 61, 124, 0.15);
-    border: 1px solid rgba(86, 61, 124, 0.2);
-    color: #333;
-}
-```
-
-## column sort
-* 列排序 使用order-{breakpoint}-*
-* Bootstrap3的版本使用.col-{breakpoint}-push-*和.col-{breakpoint}-pull-*来排序
-```
-<div class="container">
-    <div class="row mt-5">
-        <div class="col">第一列</div>
-        <div class="col order-5">第二列</div>
-        <div class="col order-6">第三列</div>
-    </div>
-    <div class="row mt-5">
-        <div class="col">第一列</div>
-        <!-- 只有当屏幕尺寸 >= 1200px的时候,才会进行排序 -->
-        <div class="col order-xl-5">第二列</div>
-        <div class="col order-xl-2">第三列</div>
-    </div>
-    <div class="row">
-        <div class="col">第一列</div>
-        <!-- order-first代表排在第一位,order-last代表排在最后一位 -->
-        <div class="col order-first">第二列</div>
-        <div class="col order-last">第三列</div>
-        <div class="col">第四列</div>
-    </div>
-</div>
-
-.row div {
-    height: 100px;
-    background: #0f0;
-    border: 1px solid #000;
-    color: #fff;
-}
-.v-align {
-    height: 100px;
-    background: rgba(255, 0, 0, 0.1);
-    margin: 10px -15px;
-}
-.v-align div {
-    height: 40px;
-    line-height: 40px;
-    background: rgba(86, 61, 124, 0.15);
-    border: 1px solid rgba(86, 61, 124, 0.2);
-    color: #333;
-}
-```
-
-## column offset
-* 列偏移,使用offset-{breakpoint}-*
-```
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-4">第一列</div>
-        <div class="col-md-4 offset-md-4">往右偏移四列</div>
-    </div>
-    <div class="row mt-5">
-        <!-- 前面的列发生偏移后面的列同样会跟着偏移 -->
-        <div class="col-3 offset-md-3">第一列</div>
-        <div class="col-3">第二列</div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-sm-5 col-md-6">小屏幕占五列,中屏占六列</div>
-        <div class="col-sm-5 col-md-6 offset-sm-3 offset-md-5">小屏偏移三列,中屏偏移五列</div>
-    </div>
-</div>
-
-.row div {
-    height: 100px;
-    background: #0f0;
-    border: 1px solid #000;
-    color: #fff;
-}
-.v-align {
-    height: 100px;
-    background: rgba(255, 0, 0, 0.1);
-    margin: 10px -15px;
-}
-.v-align div {
-    height: 40px;
-    line-height: 40px;
-    background: rgba(86, 61, 124, 0.15);
-    border: 1px solid rgba(86, 61, 124, 0.2);
-    color: #333;
-}
-```
-
-## column spacing
-* 间距 使用margin工具可以让列之间产生间距
-  - mr-{breakpoint}-auto 使右侧的列远离到最右边(就是右侧的列到最左边)
-  - ml-{breakpoint}-auto 使左侧的列远离到最左边(就是左侧的列到最右边)
-```
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-4">第一列</div>
-        <div class="col-md-4 ml-auto">第二列,跑到最右边</div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-md-3 ml-md-auto">在中屏下,离左边距离自动计算</div>
-        <div class="col-md-3 ml-md-auto">在中屏下,离左边距离自动计算</div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-auto mr-auto">宽度由内容撑开,离右边的距离是auto</div>
-        <div class="col-auto">宽度由内容撑开</div>
-    </div>
-</div>
-
-.row div {
-    height: 100px;
-    background: #0f0;
-    border: 1px solid #000;
-    color: #fff;
-}
-.v-align {
-    height: 100px;
-    background: rgba(255, 0, 0, 0.1);
-    margin: 10px -15px;
-}
-.v-align div {
-    height: 40px;
-    line-height: 40px;
-    background: rgba(86, 61, 124, 0.15);
-    border: 1px solid rgba(86, 61, 124, 0.2);
-    color: #333;
-}
-```
-
-## column nesting
-* 嵌套 每一个列里面可以再继续放行,嵌套里面的元素会以父级的宽度为标准,再分12个列
-```
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-sm-9" style="height: 150px; background: grey;">父级的第一列
-          <div class="row">
-            <div class="col-sm-8 col-6">子级的第一列,小屏下占八列,超小屏下占六列</div>
-            <div class="col-sm-4 col-6">子级的第一列,小屏下占四列,超小屏下占六列</div>
-          </div>
-        </div>
-        <div class="col-sm-3" style="height: 150px; background: pink;"></div>
-    </div>
-</div>
-
-.row div {
-    height: 100px;
-    background: #0f0;
-    border: 1px solid #000;
-    color: #fff;
-}
-.v-align {
-    height: 100px;
-    background: rgba(255, 0, 0, 0.1);
-    margin: 10px -15px;
-}
-.v-align div {
-    height: 40px;
-    line-height: 40px;
-    background: rgba(86, 61, 124, 0.15);
-    border: 1px solid rgba(86, 61, 124, 0.2);
-    color: #333;
-}
-```
+## 代码
+  - 行内代码(通过code标签可以给转义的标签添加颜色)
+  ```
+  <p>我要在这段文本里写一个<code>&lt;section&gt;</code>的html标签</p>
+  ```
+  - 大段引用(通常有一些博客,网站里面显示再一个范围内显示一段代码超出部分还有滚动条使用的就是pre标签)
+  ```
+  <pre class="pre-scrollable">
+    <code>
+        &lt;h1&gt;这是一个标签&lt;/h1&gt;
+        &lt;p&gt;这是一段文字&lt;/p&gt;
+        &lt;p&gt;这些代码放在code里,再放到pre标签里,给pre标签添加一个pre-scrollable的class,就会显示成一个340px高的框,超过后就会出现滚动条&lt;/p&gt;
+    </code>
+  </pre>
+  ```
+  - 变量(使用<var>标记变量)
+  ```
+  <var>y</var> = <var>m</var><var>x</var> + <var>b</var>
+  ```
+  - 按钮(使用<kbd>来标记键盘上的按钮,看起来跟生动)
+  ```
+  <p>想要保存的话,请按下<kbd>ctrl</kbd>+<kbd>s</kbd></p>
+  ```
+  - 输出(使用<samp>标签没什么用)
