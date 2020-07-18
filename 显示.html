@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- 把元素显示成各种类型，Bootstrap3版本只有三种值：block、inline、inline-block,隐藏visiable-*-block -->
+        <div class="col">
+          <div class="d-inline bg-primary text-white">d-inline</div>
+          <span class="d-block bg-dark text-white">d-block</span>
+          <span class="d-inline-block bg-success text-white" style="width: 200px;">d-inline-block</span>
+          <div class="d-flex bg-warning">d-flex</div>
+          <div class="d-table bg-info">d-table</div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <!-- 在各种尺寸下显示对应元素；隐藏分为两个部分：比它大的尺寸隐藏，比它小的尺寸隐藏 -->
+        <div class="col bg-primary text-white d-xl-block d-none">只在超大屏幕下显示</div>
+        <div class="col bg-dark text-white d-lg-block d-xl-none d-none">只在大屏幕下显示</div>
+        <div class="col bg-success text-white d-none d-md-block d-lg-none">只在中等屏幕下显示</div>
+        <div class="col bg-warning text-white d-none d-sm-block d-md-none">只在小屏幕下显示</div>
+        <div class="col bg-info text-white d-sm-none">只在超小屏幕下显示</div>
+      </div>
+      <div class="row mt-5">
+        <!-- 在各种尺寸下隐藏,注意超小屏幕和超大屏幕 -->
+        <div class="col bg-primary text-white d-xl-none d-block">超大屏幕以外的显示</div>
+        <div class="col bg-dark text-white d-lg-none d-xl-block">大屏幕以外的显示</div>
+        <div class="col bg-success text-white d-md-none d-lg-block">中等屏幕以外的显示</div>
+        <div class="col bg-warning text-white d-sm-none d-md-block">小屏幕以外的显示</div>
+        <div class="col bg-info text-white d-none d-sm-block">超小屏幕以外的显示</div>
+      </div>
+      <div class="row mt-5">
+        <!-- 在打印中显示 -->
+        <div class="col d-none d-print-block">author: bloodyrose wechart：kaivon</div>
+      </div>
+    </div>
+  </body>
+</html>
