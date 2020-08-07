@@ -1,8 +1,6 @@
-# 卡片
+# 轮播图
 
-## 卡片
-
-- 在 Bootstrap3 版本中没有卡片，是 Bootstrap4 中新出的
+## 轮播图
 
 ```
 <!DOCTYPE html>
@@ -26,509 +24,154 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
-          <!-- 卡片如果没有固定的宽度，那麽他们将自然填充其父元素的全部宽度 -->
-          <div class="card">
-            <!-- 卡的块状结构是 .card-body。当你需要在一个卡片内含 padding 部分就可以使用它 -->
-            <div class="card-body">
-              <h3 class="card-title">这是卡片的标题</h3>
-              <h4 class="card-subtitle mb-3">这是卡片的副标题</h4>
-              <p class="card-text">
-                这是卡片的主题内容,需要添加一个card-text的class
-              </p>
-              <!-- 多个链接之间会有magin-left -->
-              <a href="#" class="card-link">链接1</a>
-              <a href="#" class="card-link">链接2</a>
+        <div class="col">
+          <!-- carousel轮播图的基本样式,slide表示轮播图是否有过渡,carousel-fade表示轮播图使用透明度过渡(透明度必须配合slide，否则无效),data-ride="carousel"轮播图能否自动播放，默认值是false -->
+          <div class="carousel slide" data-ride="carousel">
+            <!-- carousel-inner内容区样式 -->
+            <div class="carousel-inner">
+              <!-- carousel-item轮播图每一项样式,轮播图哪项需要显示加上active -->
+              <div class="carousel-item active">
+                <!-- 图片自适应，可以设置img-fluid或者d-block和w-100 -->
+                <img src="./images/pic_01.jpg" alt="" class="d-block w-100" />
+              </div>
+              <div class="carousel-item">
+                <img src="./images/pic_02.jpg" alt="" class="d-block w-100" />
+              </div>
+              <div class="carousel-item">
+                <img src="./images/pic_03.jpg" alt="" class="d-block w-100" />
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card">
-            <!-- 图片 -->
-            <img
-              class="card-img-top"
-              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-              alt=""
-            />
-            <div class="card-body">
-              <p class="card-text">
-                这是图片的说明很长很长很长这是图片的说明很长很长很长这是图片的说明很长很长很长这是图片的说明很长很长很长这是图片的说明很长很长很长
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- 列表组、页眉、页脚 -->
-        <div class="col-lg-4">
-          <div class="card">
-            <div class="card-header">这是卡片的头部,也叫页眉</div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">这是列表的文字</li>
-              <li class="list-group-item">这是列表的文字</li>
-              <li class="list-group-item">这是列表的文字</li>
-            </ul>
-            <div class="card-footer">这是卡片的底部,也叫页脚</div>
-          </div>
-        </div>
-      </div>
-      <!-- 组合模式 -->
-      <div class="row mt-5">
-        <div class="col-lg-4">
-          <div class="card">
-            <div class="card-header">页眉</div>
-            <img
-              class="card-img-top"
-              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-              alt=""
-            />
-            <div class="card-body">
-              <h5 class="card-title">这是卡片的标题</h5>
-              <p class="card-text">
-                这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-              </p>
-              <a href="#" class="card-link btn btn-primary">链接1</a>
-              <a href="#" class="card-link btn btn-info">链接2</a>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">这是列表的文字</li>
-              <li class="list-group-item">这是列表的文字</li>
-              <li class="list-group-item">这是列表的文字</li>
-            </ul>
-            <div class="card-footer">这是卡片的底部,也叫页脚</div>
           </div>
         </div>
       </div>
       <div class="row mt-5">
         <div class="col">
-          <div class="card text-center">
-            <div class="card-header">Featured</div>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+          <!-- data-interval设置轮播图的时间间隔，默认是5000,该属性可以不仅可以使用在轮播图父级也可以使用在每一项轮播图上,data-keyboard表示能否使用键盘左右键控制轮播图,默认值为true,data-pause表示鼠标悬停在轮播图上是否停止，默认值是hover，鼠标悬停停止,也可以设置成boolean类型的值,data-wrap表示轮播图是否循环播放 -->
+          <div
+            class="carousel slide"
+            data-ride="carousel"
+            id="control"
+            data-interval="1000"
+            data-keyboard="true"
+            data-pause="true"
+            data-wrap="true"
+          >
+            <div class="carousel-inner">
+              <!-- 单独设置每一项的过渡时间 -->
+              <div class="carousel-item active" data-interval="2000">
+                <img class="img-fluid" src="./images/pic_01.jpg" alt="" />
+                <!-- carousel-caption表示给每一项添加文本 -->
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>第一张图片的标题</h5>
+                  <p>第一张图的内容</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="img-fluid" src="./images/pic_02.jpg" alt="" />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>第一张图片的标题</h5>
+                  <p>第一张图的内容</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="img-fluid" src="./images/pic_03.jpg" alt="" />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>第一张图片的标题</h5>
+                  <p>第一张图的内容</p>
+                </div>
+              </div>
             </div>
-            <div class="card-footer text-muted">2 days ago</div>
+            <!-- 添加左右箭头, carousel-control-prev是添加箭头样式,data-slide="prev"是添加箭头的事件
+            href="#control"使用a标签的href绑定轮播图的id起到对应作用,三者缺一不可 -->
+            <a href="#control" class="carousel-control-prev" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a href="#control" class="carousel-control-next" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+            <!-- 添加指示器, carousel-indicators指示器的基本样式 -->
+            <ol class="carousel-indicators">
+              <!-- data-target表示目标轮播图的id，data-slide-to表示当前轮播图是第几项 active表示当前选中轮播图的项 -->
+              <li data-target="#control" data-slide-to="0" class="active"></li>
+              <li data-target="#control" data-slide-to="1"></li>
+              <li data-target="#control" data-slide-to="2"></li>
+            </ol>
           </div>
         </div>
       </div>
-      <!--宽度设置和自定义css(在样式表中使用自定义 CSS 或使用行内样式设置宽度) -->
+      <!-- 事件与方法 -->
       <div class="row mt-5">
-        <div class="card w-50">
-          <div class="card-body">
-            <h5 class="card-title">Featured</h5>
-            <p class="card-text">Special title treatment</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="col">
+          <div class="carousel slide" id="methods">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="img-fluid" src="./images/pic_01.jpg" alt="" />
+              </div>
+              <div class="carousel-item">
+                <img class="img-fluid" src="./images/pic_02.jpg" alt="" />
+              </div>
+              <div class="carousel-item">
+                <img class="img-fluid" src="./images/pic_03.jpg" alt="" />
+              </div>
+            </div>
+            <!-- 因为通过事件去处理，所以不需要给轮播图添加data-的属性,而a标签中的href属性，不要删除，删除href属性会导致a标签失去一些特有属性，而且不用设置成href="#"会导致浏览器刷新，所以建议设置成href="javascript:;" -->
+            <a href="javascript:;" class="carousel-control-prev btn-prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a href="javascript:;" class="carousel-control-next btn-next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+            <ol class="carousel-indicators btn-dot">
+              <li class="active"></li>
+              <li></li>
+              <li></li>
+            </ol>
           </div>
         </div>
       </div>
-      <!-- 对齐 -->
-      <div class="row mt-5">
-        <div class="col-lg-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">左对齐</h5>
-              <p class="card-text">这是卡片的内容</p>
-              <a href="#" class="btn btn-primary">链接1</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">居中对齐</h5>
-              <p class="card-text">这是卡片的内容</p>
-              <a href="#" class="btn btn-primary">链接1</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card text-right">
-            <div class="card-body">
-              <h5 class="card-title">右对齐</h5>
-              <p class="card-text">这是卡片的内容</p>
-              <a href="#" class="btn btn-primary">链接1</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 导航 -->
-      <div class="row mt-5">
-        <div class="card">
-          <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a href="#" class="nav-link active">Active</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Link</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Disabled</a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">结合导航</h5>
-            <p class="card-text">这是卡片的内容</p>
-            <a href="#" class="btn btn-primary">链接1</a>
-          </div>
-        </div>
-      </div>
-      <!-- 图像 -->
-      <div class="row mt-5">
-        <div class="col-lg-4">
-          <div class="card">
-            <img
-              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-              alt=""
-              class="card-img-top"
-            />
-            <div class="card-body">
-              <h5 class="card-title">这是卡片的标题</h5>
-              <p class="card-text">这是卡片的文本内容</p>
-              <p class="card-text">
-                <small class="text-muted">2 days ago</small>
-              </p>
-            </div>
-            <img
-              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-              alt=""
-              class="card-img-bottom"
-            />
-          </div>
-        </div>
-      </div>
-      <!-- 文本放在图像上 -->
-      <div class="row mt-5">
-        <div class="card">
-          <img
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-            alt=""
-            class="card-img-top"
-          />
-          <div class="card-img-overlay">
-            <h5 class="card-title">这是卡片的标题</h5>
-            <p class="card-text">这是卡片的文本内容</p>
-            <p class="card-text">
-              <small class="text-muted">2 days ago</small>
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- 卡片样式(背景色) -->
-      <div class="row mt-5">
-        <div class="col-3 mb-1">
-          <div class="card bg-primary">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3 mb-1">
-          <div class="card bg-success">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3 mb-1">
-          <div class="card bg-info">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3 mb-1">
-          <div class="card bg-secondary">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card bg-warning">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card bg-danger">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card bg-light">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card bg-dark">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 卡片样式(边框:使用边框工具，来改变卡片的 border-color。 也能设置 .text-{color} class 在父层的 .card ，或者是卡片的显示内容上) -->
-      <div class="row mt-5">
-        <div class="col-3">
-          <div class="card border-primary text-primary">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card border-dark text-dark">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card border-secondary text-secondary">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card border-success text-success">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card border-warning text-warning">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card border-danger text-danger">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card border-info text-info">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card border-light text-light">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-              <h5 class="card-title">标题</h5>
-              <p class="card-text">内容</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 页眉、页脚边框 -->
-      <div class="row mt-5">
-        <div class="card border-success">
-          <div class="card-header bg-transparent border-success">Header</div>
-          <div class="card-body">
-            <h5 class="card-title">标题</h5>
-            <p class="card-text">内容</p>
-          </div>
-          <div class="card-footer bg-transparent border-danger">Footer</div>
-        </div>
-      </div>
-      <!-- 卡片排版-卡片组 -->
-      <div class="row mt-5 card-group">
-        <div class="card">
-          <div class="card-header">页眉</div>
-          <img
-            class="card-img-top"
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-            alt=""
-          />
-          <div class="card-body">
-            <h5 class="card-title">这是卡片的标题</h5>
-            <p class="card-text">
-              这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-            </p>
-          </div>
-          <div class="card-footer">这是卡片的底部,也叫页脚</div>
-        </div>
-        <div class="card">
-          <div class="card-header">页眉</div>
-          <img
-            class="card-img-top"
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-            alt=""
-          />
-          <div class="card-body">
-            <h5 class="card-title">这是卡片的标题</h5>
-            <p class="card-text">
-              这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-            </p>
-          </div>
-          <div class="card-footer">这是卡片的底部,也叫页脚</div>
-        </div>
-        <div class="card">
-          <div class="card-header">页眉</div>
-          <img
-            class="card-img-top"
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-            alt=""
-          />
-          <div class="card-body">
-            <h5 class="card-title">这是卡片的标题</h5>
-            <p class="card-text">
-              这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-            </p>
-          </div>
-          <div class="card-footer">这是卡片的底部,也叫页脚</div>
-        </div>
-      </div>
-      <!-- 卡片排版-卡片之间互不相连，当尺寸一样 -->
-      <div class="row mt-5 card-deck">
-        <div class="card">
-          <div class="card-header">页眉</div>
-          <img
-            class="card-img-top"
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-            alt=""
-          />
-          <div class="card-body">
-            <h5 class="card-title">这是卡片的标题</h5>
-            <p class="card-text">
-              这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-            </p>
-          </div>
-          <div class="card-footer">这是卡片的底部,也叫页脚</div>
-        </div>
-        <div class="card">
-          <div class="card-header">页眉</div>
-          <img
-            class="card-img-top"
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-            alt=""
-          />
-          <div class="card-body">
-            <h5 class="card-title">这是卡片的标题</h5>
-            <p class="card-text">
-              这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-              这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-              这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-            </p>
-          </div>
-          <div class="card-footer">这是卡片的底部,也叫页脚</div>
-        </div>
-        <div class="card">
-          <div class="card-header">页眉</div>
-          <img
-            class="card-img-top"
-            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-            alt=""
-          />
-          <div class="card-body">
-            <h5 class="card-title">这是卡片的标题</h5>
-            <p class="card-text">
-              这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-            </p>
-          </div>
-          <div class="card-footer">这是卡片的底部,也叫页脚</div>
-        </div>
-      </div>
-      <!-- 卡片排版-瀑布流式排列，通过添加card-columns类名实现 -->
-      <div class="row mt-5">
-        <div class="card-columns">
-          <div class="card">
-            <div class="card-header">页眉</div>
-            <img
-              class="card-img-top"
-              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-              alt=""
-            />
-            <div class="card-body">
-              <h5 class="card-title">这是卡片的标题</h5>
-              <p class="card-text">
-                这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-              </p>
-            </div>
-            <div class="card-footer">这是卡片的底部,也叫页脚</div>
-          </div>
-          <div class="card">
-            <div class="card-header">页眉</div>
-            <img
-              class="card-img-top"
-              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-              alt=""
-            />
-            <div class="card-body">
-              <h5 class="card-title">这是卡片的标题</h5>
-              <p class="card-text">
-                这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-                这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-                这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-              </p>
-            </div>
-            <div class="card-footer">这是卡片的底部,也叫页脚</div>
-          </div>
-          <div class="card">
-            <div class="card-header">页眉</div>
-            <img
-              class="card-img-top"
-              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596741935530&di=906dc2aab00abc0600b5ad9e8ef0c440&imgtype=0&src=http%3A%2F%2Fp2.so.qhimgs1.com%2Ft01dfcbc38578dac4c2.jpg"
-              alt=""
-            />
-            <div class="card-body">
-              <h5 class="card-title">这是卡片的标题</h5>
-              <p class="card-text">
-                这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容这是卡片的文本内容
-              </p>
-            </div>
-            <div class="card-footer">这是卡片的底部,也叫页脚</div>
-          </div>
-        </div>
-      </div>
+      <button class="btn btn-primary play">开始</button>
+      <button class="btn btn-primary pause">暂停</button>
     </div>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //方法
+      $(".carousel").carousel({
+        interval: 2000,
+      $(".play").click(function () {
+        $(".carousel").carousel("cycle");
+      });
+      $(".pause").click(function () {
+        $(".carousel").carousel("pause");
+      });
+      $(".btn-prev").click(function () {
+        $("#methods").carousel("prev");
+      });
+      $(".btn-next").click(function () {
+        $("#methods").carousel("next");
+      });
+      $(".btn-dot li").each(function(index, element){
+        $(element).click(function(){
+          $("#methods").carousel(index);
+        });
+      });
+      //事件
+      //所有轮播事件都在轮播本身（即 <div class="carousel">）下被触发,当调用 slide 方法时，此事件会立即触发
+      $("#methods").on("slide.bs.carousel", function(e){
+        console.log("开始走");
+        //e.direction表示当前轮播方向, e.relatedTarget表示滑动到指定DOM元素，e.to表示下一项索引,e.from表示当前项索引
+        console.log(e.direction, e.relatedTarget, e.to, e.from);
+      });
+      $("#methods").on("slid.bs.carousel", function(e){
+        console.log("走完");
+        console.log(e.direction, e.relatedTarget, e.to, e.from);
+      });
+    </script>
   </body>
 </html>
+
 ```
