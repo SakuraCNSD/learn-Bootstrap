@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- needs-validation给form标签添加此类名表示开启验证， form加上novalidate属性表示禁止浏览器默认的反馈提示不影响JS -->
+      <form action="#" class="needs-validation" novalidate>
+        <div class="form-row mb-3">
+          <div class="form-group col-md-4">
+            <label for="surname">姓</label>
+            <!-- 给表单标签加上required属性，表示该表单必填，当不具备验证 -->
+            <input
+              type="text"
+              class="form-control"
+              id="surname"
+              placeholder="请输入姓"
+              value="王"
+              required
+            />
+            <!-- valid-feedback表示验证成功的提示效果 -->
+            <div class="valid-feedback">
+              验证通过
+            </div>
+            <!-- invalid-feedback表示验证失败的提示效果 -->
+            <div class="invalid-feedback">
+              验证失败
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="name">名</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="请输入名"
+              id="name"
+              value="八"
+              required
+            />
+            <div class="valid-feedback">
+              验证成功
+            </div>
+            <div class="invalid-feedback">
+              验证失败
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="usename">用户名</label>
+            <input
+              type="text"
+              class="form-control"
+              id="usename"
+              placeholder="请输入用户名"
+              required
+            />
+            <div class="valid-feedback">
+              验证成功
+            </div>
+            <div class="invalid-feedback">
+              验证失败
+            </div>
+          </div>
+        </div>
+        <div class="form-row mb-3">
+          <div class="form-group col-md-6">
+            <label for="homeAddress">家庭地址</label>
+            <input
+              type="text"
+              class="form-control"
+              id="homeAddress"
+              placeholder="请输入家庭地址"
+              required
+            />
+            <div class="valid-feedback">
+              验证成功
+            </div>
+            <div class="invalid-feedback">
+              验证失败
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="companyAddress">公司地址</label>
+            <input
+              type="text"
+              class="form-control"
+              id="companyAddress"
+              placeholder="请输入公司地址"
+              required
+            />
+            <div class="valid-feedback">
+              验证成功
+            </div>
+            <div class="invalid-feedback">
+              验证失败
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="grid"
+              required
+            />
+            <label for="grid" class="form-check-label">同意所读内容</label>
+            <div class="valid-feedback">
+              验证成功
+            </div>
+            <div class="invalid-feedback">
+              验证失败
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+      </form>
+      <!-- 自定义表单 -->
+      <div class="row mt-5">
+        <div class="col">
+          <!-- custom-control表示自定义表单的初始化样式, custom-checkbox用来设置复选框选项的样式 -->
+          <div class="form-group custom-control custom-checkbox">
+            <!-- custom-control-input自定义复选框的初始样式 -->
+            <input type="checkbox" id="eat" class="custom-control-input" />
+            <!-- custom-control-label自定义复选框label标签的初始化样式 -->
+            <label for="eat" class="custom-control-label">吃饭</label>
+          </div>
+          <!-- custom-radio自定义单选框的初始化样式 -->
+          <div class="form-group custom-radio custom-control">
+            <input
+              type="radio"
+              id="male"
+              class="custom-control-input"
+              name="sex"
+            />
+            <label for="male" class="custom-control-label">男</label>
+          </div>
+          <div class="form-group custom-control custom-radio">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="female"
+              name="sex"
+            />
+            <label for="female" class="custom-control-label">女</label>
+          </div>
+          <!-- 在一行中显示, custom-control-inline -->
+          <div
+            class="form-group custom-radio custom-control custom-control-inline"
+          >
+            <input
+              type="radio"
+              id="male1"
+              class="custom-control-input"
+              name="sex"
+            />
+            <label for="male1" class="custom-control-label">男</label>
+          </div>
+          <div
+            class="form-group custom-control custom-radio custom-control-inline"
+          >
+            <!-- disabled添加该属性的表单被禁用 -->
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="female1"
+              name="sex"
+              disabled
+            />
+            <label for="female1" class="custom-control-label">女</label>
+          </div>
+          <!-- 下拉菜单,custom-select自定义下拉菜单样式，之前是单箭头，现在是双箭头，而且还添加过渡 -->
+          <select name="" id="" class="form-group custom-select">
+            <option value="">城市</option>
+            <option value="">北京</option>
+            <option value="">上海</option>
+            <option value="">广州</option>
+          </select>
+          <!-- 滑块 -->
+          <div class="form-group">
+            <label for="range1">滑块</label>
+            <!-- custom-range自定义滑块样式 -->
+            <input type="range" id="range1" class="custom-range" />
+          </div>
+          <div class="form-group">
+            <label for="range2">有范围的滑块</label>
+            <input
+              type="range"
+              class="custom-range"
+              id="range2"
+              min="0"
+              max="5"
+            />
+          </div>
+          <div class="form-group">
+            <label for="range3">规定步长的滑块</label>
+            <input
+              type="range"
+              id="range3"
+              class="custom-range"
+              step="5"
+              min="0"
+              max="10"
+            />
+          </div>
+          <!-- 文件选择 -->
+          <!-- custom-file文件选择的初始化样式 -->
+          <div class="form-group custom-file">
+              <!-- custom-file-input文件选择的文本框样式 -->
+              <input type="file" class="custom-file-input" id="file">
+              <!-- custom-file-label文件选择的label标签样式 -->
+              <label for="file" class="custom-file-label">Choose File</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var forms = document.querySelectorAll(".needs-validation");
+        forms.forEach(function (form, index) {
+          //form标签上有一个submit监听事件
+          form.addEventListener("submit", function (e) {
+            //form.checkValidity()方法判断表单验证是否通过
+            if (form.checkValidity() === false) {
+              //验证不通过阻止默认事件和冒泡，表单提交默认事件会刷新页面验证失败要阻止刷新
+              e.preventDefault();
+              e.stopPropagation();
+            }
+            //提交事件发生后，不管验证是否成功，都需要给form身上添加was-validated类名，通过这个类名显示每一项表单是否通过的提示
+            form.classList.add("was-validated");
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
