@@ -17,249 +17,379 @@
     </style>
   </head>
   <body>
+    <!-- Bootstrap 一次只支持一个modal。不支持嵌套modal，因为我们认为嵌套modal用户体验不佳。 -->
     <div class="container">
       <div class="row">
-        <div class="col">
-          <!-- list-group列表组的容器样式 -->
-          <ul class="list-group">
-            <!-- active类名表示当前选中的列表项,disabled类名表示当前禁用列表项 -->
-            <li class="list-group-item active">red</li>
-            <li class="list-group-item disabled">green</li>
-            <li class="list-group-item">blue</li>
-            <li class="list-group-item">pink</li>
-          </ul>
+        <div class="col mt-5">
+          <button
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#modal1"
+          >
+            普通模态框
+          </button>
+          <button
+            class="btn btn-success"
+            data-toggle="modal"
+            data-target="#modal2"
+          >
+            垂直居中模态框
+          </button>
+          <button
+            class="btn btn-info"
+            data-toggle="modal"
+            data-target="#modal3"
+          >
+            栅格系统模态框
+          </button>
         </div>
-        <!-- 链接和按钮组 -->
+        <div class="col mt-5">
+          <!-- data-whatever给不同模态框传递内容，需要结合JS实现 -->
+          <button
+            class="btn btn-success"
+            data-toggle="modal"
+            data-target="#modal4"
+            data-whatever="kaivon"
+          >
+            模态框相同内容不同
+          </button>
+          <button
+            class="btn btn-success"
+            data-toggle="modal"
+            data-target="#modal4"
+            data-whatever="boodly"
+          >
+            模态框相同内容不同
+          </button>
+          <button
+            class="btn btn-success"
+            data-toggle="modal"
+            data-target="#modal4"
+            data-whatever="rose"
+          >
+            模态框相同内容不同
+          </button>
+        </div>
+        <div class="col mt-5">
+          <button
+            class="btn btn-warning"
+            data-toggle="modal"
+            data-target="#modal5"
+          >
+            超大尺寸模态框
+          </button>
+          <button
+            class="btn btn-warning"
+            data-toggle="modal"
+            data-target="#modal6"
+          >
+            大尺寸模态框
+          </button>
+          <button
+            class="btn btn-warning"
+            data-toggle="modal"
+            data-target="#modal7"
+          >
+            小尺寸模态框
+          </button>
+        </div>
+      </div>
+      <div class="row">
         <div class="col">
-          <div class="list-group">
-            <a href="#" class="list-group-item">red</a>
-            <a href="#" class="list-group-item">green</a>
-            <a href="#" class="list-group-item">blue</a>
-            <a href="#" class="list-group-item">pink</a>
+          <!-- 
+            data-backdrop设置模态框是否显示遮罩层，默认值为true
+            data-keyboard设置模态框是否能通过ESC键退出，默认值为true
+            data-focus让模态框获取到焦点，但是模态框是div没有聚焦所以这条属性没用
+            data-show初始化模态框是否显示
+        -->
+          <button
+            class="btn btn-primary"
+            data-target="#modal8"
+            data-toggle="modal"
+            data-backdrop="true"
+            data-keyboard="true"
+            data-focus="true"
+            data-show="true"
+          >
+            data属性按钮
+          </button>
+          <button class="btn btn-danger" id="myBtn">方法与事件</button>
+        </div>
+      </div>
+    </div>
+    <!-- 模态框通常不需要放到container容器中，只需要触发时显示就行 -->
+    <!-- 普通模态框,模态框的遮罩层不再模态框的容器上，而是通过JS动态生成添加到页面<div class="modal-backdrop fade show"></div> -->
+    <!-- modal模态框容器的初始样式，设置定位铺满全屏,fade给模态框加上渐隐渐显效果针对modal-dialog -->
+    <div class="modal fade" id="modal1">
+      <!-- modal-dialog模态框内容容器的父级样式，规定模态框的大小、定位、过渡等样式 -->
+      <div class="modal-dialog">
+        <!-- modal-content模态框内容容器的样式 -->
+        <div class="modal-content">
+          <!-- 模态框内容分成三部分,modal-header头部样式、modal-body内容样式、modal-footer尾部样式 -->
+          <div class="modal-header">
+            <!-- modal-title模态框标题样式 -->
+            <h5 class="modal-title">标题</h5>
+            <!-- data-dismiss="odal"设置模态框的事件 -->
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <!-- 模态框中的内容很多会出现滚动条,而滚动条滚动不会影响页面，只滚动模态框内容 -->
+          <div class="modal-body">
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
+            ac consectetur ac, vestibulum at eros. Praesent commodo cursus
+            magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus
+            vel augue laoreet rutrum faucibus dolor auctor. Aenean lacinia
+            bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Donec sed odio dui. Donec
+            ullamcorper nulla non metus auctor fringilla. Cras mattis
+            consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
+            facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros. Praesent commodo cursus magna,
+            vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+            augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum
+            nulla sed consectetur. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Donec sed odio dui. Donec
+            ullamcorper nulla non metus auctor fringilla. Cras mattis
+            consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
+            facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros. Praesent commodo cursus magna,
+            vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+            augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum
+            nulla sed consectetur. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Donec sed odio dui. Donec
+            ullamcorper nulla non metus auctor fringilla. Cras mattis
+            consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
+            facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros. Praesent commodo cursus magna,
+            vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+            augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum
+            nulla sed consectetur. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Donec sed odio dui. Donec
+            ullamcorper nulla non metus auctor fringilla. Cras mattis
+            consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
+            facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros. Praesent commodo cursus magna,
+            vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+            augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum
+            nulla sed consectetur. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Donec sed odio dui. Donec
+            ullamcorper nulla non metus auctor fringilla. Cras mattis
+            consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
+            facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros. Praesent commodo cursus magna,
+            vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel
+            augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum
+            nulla sed consectetur. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Donec sed odio dui. Donec
+            ullamcorper nulla non metus auctor fringilla.
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button class="btn btn-primary">保存</button>
           </div>
         </div>
-        <div class="col">
-          <!-- list-group-flush去掉列表组的边框 -->
-          <div class="list-group list-group-flush">
-            <!-- list-group-item-action添加上hover样式,表单元素添加disabled属性使列表项禁用 -->
-            <button class="list-group-item list-group-item-action active">
-              red
+      </div>
+    </div>
+    <!-- 垂直居中模态框 -->
+    <div class="modal fade" id="modal2">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">标题</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
             </button>
-            <button class="list-group-item list-group-item-action">
-              green
-            </button>
-            <button class="list-group-item list-group-item-action" disabled>
-              blue
-            </button>
-            <button class="list-group-item list-group-item-action">pink</button>
+          </div>
+          <div class="modal-body">
+            垂直居中的模态框
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button class="btn btn-primary">保存</button>
           </div>
         </div>
       </div>
-      <!-- 添加背景色 -->
-      <div class="row mt-5">
-        <div class="col">
-          <ul class="list-group">
-            <li class="list-group-item list-group-item list-group-item-primary">
-              添加背景颜色
-            </li>
-            <li class="list-group-item list-group-item list-group-item-success">
-              添加背景颜色
-            </li>
-            <li class="list-group-item list-group-item list-group-item-info">
-              添加背景颜色
-            </li>
-            <li
-              class="list-group-item list-group-item list-group-item-secondary"
-            >
-              添加背景颜色
-            </li>
-            <li class="list-group-item list-group-item list-group-item-warning">
-              添加背景颜色
-            </li>
-            <li class="list-group-item list-group-item list-group-item-danger">
-              添加背景颜色
-            </li>
-            <li class="list-group-item list-group-item list-group-item-light">
-              添加背景颜色
-            </li>
-            <li class="list-group-item list-group-item list-group-item-dark">
-              添加背景颜色
-            </li>
-          </ul>
-        </div>
-        <div class="col">
-          <ul class="list-group">
-            <li
-              class="list-group-item list-group-item-action list-group-item list-group-item-primary"
-            >
-              给背景颜色添加hover效果
-            </li>
-            <li
-              class="list-group-item list-group-item-action list-group-item list-group-item-success"
-            >
-              给背景颜色添加hover效果
-            </li>
-            <li
-              class="list-group-item list-group-item-action list-group-item list-group-item-info"
-            >
-              给背景颜色添加hover效果
-            </li>
-            <li
-              class="list-group-item list-group-item-action list-group-item list-group-item-secondary"
-            >
-              给背景颜色添加hover效果
-            </li>
-            <li
-              class="list-group-item list-group-item-action list-group-item list-group-item-warning"
-            >
-              给背景颜色添加hover效果
-            </li>
-            <li
-              class="list-group-item list-group-item-action list-group-item list-group-item-danger"
-            >
-              给背景颜色添加hover效果
-            </li>
-            <li
-              class="list-group-item list-group-item-action list-group-item list-group-item-light"
-            >
-              给背景颜色添加hover效果
-            </li>
-            <li
-              class="list-group-item list-group-item-action list-group-item list-group-item-dark"
-            >
-              给背景颜色添加hover效果
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- 使用徽章 -->
-      <div class="row mt-5">
-        <div class="col">
-          <ul class="list-group">
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center"
-            >
-              red
-              <span class="badge badge-primary badge-pill">14</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- 自定义内容 -->
-      <div class="row mt-5">
-        <div class="col">
-          <div class="list-group">
-            <!-- 这里使用a标签去嵌套块级标签不符合，但是为了实现整个列表项都是链接 -->
-            <a href="#" class="list-group-item list-group-item-action active">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="mb-1">List group item heading</h5>
-                <small>3 days ago</small>
+    </div>
+    <!-- 使用栅格系统 -->
+    <div class="modal fade" id="modal3">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">标题</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-4 bg-info border">
+                  第一列
+                </div>
+                <div class="col-md-4 bg-info border">
+                  第二列
+                </div>
+                <div class="col-md-4 bg-info border">
+                  第三列
+                </div>
+                <div class="col-md-12 bg-info border">
+                  第四列
+                </div>
               </div>
-              <p class="mb-1">
-                Donec id elit non mi porta gravida at eget metus. Maecenas sed
-                diam eget risus varius blandit.
-              </p>
-              <small>Donec id elit non mi porta.</small>
-            </a>
+              <div class="row">
+                <div class="col bg-info border">第一列</div>
+                <div class="col bg-info border">第二列</div>
+                <div class="col bg-info border">第三列</div>
+                <div class="col bg-info border">第四列</div>
+              </div>
+              <div class="row">
+                <div class="col-md-5 bg-info">第一列</div>
+                <div class="col-md-4 ml-auto bg-info">第二列</div>
+              </div>
+              <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 bg-info">
+                  超大屏幕6个、大屏4个、中等屏幕3个、小屏幕2个、超小屏幕1个
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 bg-info">
+                  超大屏幕6个、大屏4个、中等屏幕3个、小屏幕2个、超小屏幕1个
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button class="btn btn-primary">保存</button>
           </div>
         </div>
       </div>
-      <!-- 选项卡 -->
-      <div class="row mt-5">
-        <div class="col-4">
-          <!-- a标签通过href绑定选项卡内容,其它标签通过data-target绑定,data-toggle="list"添加事件 -->
-          <div class="list-group">
-            <a
-              href="#list-home"
-              class="list-group-item list-group-item-action active"
-              data-toggle="list"
-              >Home</a
-            >
-            <a
-              href="#list-profile"
-              class="list-group-item list-group-item-action"
-              data-toggle="list"
-              >Profile</a
-            >
-            <a
-              href="#list-messages"
-              class="list-group-item list-group-item-action"
-              data-toggle="list"
-              >Messages</a
-            >
-            <span
-              data-target="#list-settings"
-              class="list-group-item list-group-item-action"
-              data-toggle="list"
-              >Settings</span
-            >
+    </div>
+    <!-- 不同模态框 -->
+    <div class="modal fade" id="modal4">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">标题</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
           </div>
-        </div>
-        <div class="col-8">
-          <!-- tab-content选项卡内容的容器样式 -->
-          <div class="tab-content">
-            <!-- tab-pane选项卡每一项的样式,添加fade和show使具有淡入淡出效果 -->
-            <div class="tab-pane active fade show" id="list-home">
-              Velit aute mollit ipsum ad dolor consectetur nulla officia culpa
-              adipisicing exercitation fugiat tempor.
-            </div>
-            <div class="tab-pane fade" id="list-profile">
-              Cupidatat quis ad sint excepteur laborum in esse qui. Et excepteur
-              consectetur ex nisi eu do cillum ad laborum.
-            </div>
-            <div class="tab-pane fade" id="list-messages">
-              Ut ut do pariatur aliquip aliqua aliquip exercitation do nostrud
-              commodo reprehenderit aute ipsum voluptate.
-            </div>
-            <div class="tab-pane fade" id="list-settings">
-              Irure enim occaecat labore sit qui aliquip reprehenderit amet
-              velit.
-            </div>
+          <div class="modal-body">
+            <form action="#">
+              <div class="form-group">
+                <label for="username" class="col-form-label">用户名</label>
+                <input type="text" class="form-control" id="username" />
+              </div>
+              <div class="form-group">
+                <label for="comment" class="col-form-label">评论</label>
+                <textarea id="comment" class="form-control"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button class="btn btn-primary">保存</button>
           </div>
         </div>
       </div>
-      <!-- 方法与事件 -->
-      <div class="row mt-5">
-        <div class="col-4">
-          <div class="list-group" id="myList">
-            <a href="#list-home1" class="list-group-item list-group-item-action"
-              >Home</a
-            >
-            <a
-              href="#list-profile1"
-              class="list-group-item list-group-item-action"
-              >Profile</a
-            >
-            <a
-              href="#list-messages1"
-              class="list-group-item list-group-item-action"
-              >Messages</a
-            >
-            <a
-              href="#list-settings1"
-              class="list-group-item list-group-item-action"
-              >Settings</a
-            >
+    </div>
+    <!-- 大小尺寸 -->
+    <!-- bd-example-modal-xl给模态框容器添加超大尺寸样式 -->
+    <div class="modal fade bd-example-modal-xl" id="modal5">
+      <!-- modal-xl给模态框添加超大尺寸样式 -->
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">标题</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            超大尺寸模态框
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button class="btn btn-primary">保存</button>
           </div>
         </div>
-        <div class="col-8">
-          <div class="tab-content">
-            <div class="tab-pane active fade show" id="list-home1">
-              Velit aute mollit ipsum ad dolor consectetur nulla officia culpa
-              adipisicing exercitation fugiat tempor.
-            </div>
-            <div class="tab-pane fade" id="list-profile1">
-              Cupidatat quis ad sint excepteur laborum in esse qui. Et excepteur
-              consectetur ex nisi eu do cillum ad laborum.
-            </div>
-            <div class="tab-pane fade" id="list-messages1">
-              Ut ut do pariatur aliquip aliqua aliquip exercitation do nostrud
-              commodo reprehenderit aute ipsum voluptate.
-            </div>
-            <div class="tab-pane fade" id="list-settings1">
-              Irure enim occaecat labore sit qui aliquip reprehenderit amet
-              velit.
-            </div>
+      </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg" id="modal6">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">标题</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            大尺寸模态框
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button class="btn btn-primary">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade bd-expamle-modal-sm" id="modal7">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">标题</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            小尺寸模态框
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button class="btn btn-primary">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- data属性都是添加在button标签上 -->
+    <div class="modal fade" id="modal8">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">标题</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            data属性模态框
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button class="btn btn-primary">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 方法与事件 -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">标题</h5>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            方法与事件
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button class="btn btn-primary">保存</button>
           </div>
         </div>
       </div>
@@ -271,31 +401,40 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      $("#modal4").on("show.bs.modal", function (e) {
+        //e.relatedTarget为点击的元素
+        //.data("whatever");取到点击元素上属性为data-whatever的值
+        var value = $(e.relatedTarget).data("whatever");
+        $(this)
+          .find(".modal-title")
+          .text("新评论来自于：" + value);
+        $(this).find(".modal-body input").val(value);
+      });
       //方法
-      //修改当前选中项
-      $("#myList a:first-child").tab("show");
-      //点击时切换选项卡
-      $("#myList a").on("click", function () {
-        $(this).tab("show");
+      $("#myBtn").click(function () {
+        //通过js控制模态框显示
+        //$("#myModal").modal("show");
+        //通过js控制模态框隐藏
+        //$("#myModal").modal("hide");
+        //通过js控制模态框隐藏显示
+        //$("#myModal").modal("toggle");
       });
       //事件
-      //这个事件因选项显示而触发，但是在新选项被显示之前。 使用 event.target 和 event.relatedTarget 将目前与先前添加(如果可用) 的作为目标
-      $("#myList a:nth-child(2)").on("show.bs.tab", function (e) {
-        console.log("该内容要显示了");
-        //e.target表示新显示的选项，e.relatedTarget表示之前的选项
-        console.log(e.target, e.relatedTarget);
+      //当调用 show 实例方法时，此事件会立即触发。如果是因点击，点击的元素作为事件的 relatedTarget 属性可用。
+      $("#myModal").on("show.bs.modal", function (e) {
+        console.log("显示前");
       });
-      //这个事件在选项显示后触发，但是在新选项被显示之前。 使用 event.target 和 event.relatedTarget 来分别定位添加中和刚刚添加的选项。
-      $("#myList a:nth-child(2)").on("shown.bs.tab", function (e) {
-        console.log("该内容已经显示了");
+      //当modal显示时会触发此事件（等待 CSS 转换完成）。如果是因点击导致，点击的元素作为事件的 relatedTarget 属性可用。
+      $("#myModal").on("shown.bs.modal", function (e) {
+        consoel.log("完全显示");
       });
-      //新的选项要显示（先前的添加选项将被隐藏）时，此事将触发。 使用 event.target 和 event.relatedTarget 分别定位先前添加和即将添加的选项。
-      $("#myList a:nth-child(2)").on("hide.bs.tab", function (e) {
-        console.log("该内容要隐藏了");
+      //当调用 hide 实例方法时，会立即触发此事件
+      $("#myModal").on("hide.bs.modal", function (e) {
+        console.log("隐藏前");
       });
-      //新的选项显示后（因此先前添加的选项将隐藏），此事件将触发。 使用 event.target 和 event.relatedTarget 分别定位先前添加选项和新添加的选项。
-      $("#myList a:nth-child(2)").on("hidden.bs.tab", function (e) {
-        console.log("该内容已经隐藏了");
+      //当 modal 隐藏后会触发此事件（等 CSS 转换完成）。
+      $("#myModal").on("hidden.bs.modal", function (e) {
+        conosle.log("完全隐藏");
       });
     </script>
   </body>
