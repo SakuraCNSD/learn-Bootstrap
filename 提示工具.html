@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col">
+          <!-- data-toggle="tooltip"设置提示工具的事件，title设置提示工具的标题，data-placement设置提示工具显示的方向,提示工具没有data-content，不需要点击，只要鼠标hover到目标元素就弹出提示工具 -->
+          <button
+            class="btn btn-secondary"
+            data-toggle="tooltip"
+            title="这个提示工具在上面显示"
+            data-placement="top"
+          >
+            上面弹出提示工具
+          </button>
+          <button
+            class="btn btn-secondary"
+            data-toggle="tooltip"
+            title="这个提示工具在上面显示"
+            data-placement="right"
+          >
+            右侧弹出提示工具
+          </button>
+          <button
+            class="btn btn-secondary"
+            data-toggle="tooltip"
+            title="这个提示工具在上面显示"
+            data-placement="bottom"
+          >
+            下面弹出提示工具
+          </button>
+          <button
+            class="btn btn-secondary"
+            data-toggle="tooltip"
+            title="这个提示工具在上面显示"
+            data-placement="left"
+          >
+            左侧弹出提示工具
+          </button>
+        </div>
+      </div>
+      <!-- 给文本关键字添加提示工具 -->
+      <div class="row mt-5">
+        <p>
+          Tight pants next level keffiyeh
+          <a href="#" data-toggle="tooltip" data-title="Default tooltip">
+            you probably</a
+          >
+          haven't heard of them. Photo booth beard raw denim letterpress vegan
+          messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie
+          sustainable quinoa 8-bit american apparel have a terry richardson
+          vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats.
+          Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan
+          chambray. A really ironic artisan whatever keytar, scenester
+          farm-to-table banksy Austin twitter handle freegan cred raw denim
+          single-origin coffee viral.
+        </p>
+      </div>
+      <!-- 自定义html -->
+      <div class="row mt-5">
+        <div class="col">
+          <button
+            class="btn btn-success"
+            data-toggle="tooltip"
+            data-html="true"
+            title="自<em>定义</em><b>html</b>"
+          >
+            自定义html
+          </button>
+        </div>
+        <!-- 禁用属性 -->
+        <div class="col">
+          <span
+            class="d-inline-block"
+            data-toggle="tooltip"
+            title="禁用的元素弹出提示工具，需要在外面添加一层，把交互功能添加到这一层上"
+          >
+            <button
+              class="btn btn-primary"
+              style="pointer-events: none;"
+              disabled
+            >
+              禁用的按钮提示工具
+            </button>
+          </span>
+        </div>
+        <!-- data-animation="true"设置过渡效果, data-container="body"设置提示工具的显示位置, data-delay设置提示工具弹出或隐藏的延迟时间,data-trigger="hover"设置鼠标放到目标上弹出提示工具，data-offset设置提示工具的偏移量 -->
+        <div class="col">
+          <button
+            class="btn btn-success"
+            data-toggle="tooltip"
+            title="这是标题"
+            data-animation="true"
+            data-container="body"
+            data-delay='{"show": 500, "hide": 100 }'
+            data-trigger="hover"
+            data-offset="120"
+          >
+            data-属性
+          </button>
+        </div>
+      </div>
+      <!-- 方法与事件 -->
+      <div class="row mt-5">
+        <div class="col">
+          <button class="btn btn-primary" id="mytooltip" title="方法与事件">
+            方法与事件
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //必须初始化才能显示效果
+      $("[data-toggle='tooltip']").tooltip();
+      //方法
+      //$("#mytooltip").tooltip("show"); //显示提示工具
+      //$("#mytooltip").tooltip("hide"); //隐藏提示工具
+      //$("#mytooltip").tooltip("toggle"); //隐藏或显示提示工具
+      //$("#mytooltip").tooltip("enable"); //添加提示工具
+      $("#mytooltip").tooltip("disable"); //移除提示工具
+      $("#mytooltip").tooltip("toggleEnabled"); //添加或移除提示工具
+      //事件
+      //当调用 show 实例方法时，此事件会立即触发
+      $("#mytooltip").on("show.bs.tooltip", function () {
+        console.log("提示框要显示了");
+      });
+      //当弹出框显示时，会触发此事件（待 CSS 转换完成）
+      $("#mytooltip").on("shown.bs.tooltip", function () {
+        console.log("提示框已经显示了");
+      });
+      //当调用 hide 实例方法时，会立即触发此事件
+      $("#mytooltip").on("hide.bs.tooltip", function () {
+        console.log("提示框要隐藏了");
+      });
+      //当弹出框隐藏后，会触发此事件（将等待CSS转换完成）
+      $("#mytooltip").on("hidden.bs.tooltip", function () {
+        console.log("提示框已经隐藏了");
+      });
+      //当将提示范本加到 DOM 时，此事件在 show.bs.tooltip 事件之后触发
+      $("#mytooltip").on("inserted.bs.tooltip", function () {
+        console.log("提示框已经插入到页面中");
+      });
+    </script>
+  </body>
+</html>
