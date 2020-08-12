@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        margin-bottom: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col">
+          <!-- spinner-border设置旋转加载样式，默认颜色值text-dark样式 -->
+          <div class="spinner-border text-primary"></div>
+          <div class="spinner-border text-secondary"></div>
+          <div class="spinner-border text-success"></div>
+          <div class="spinner-border text-info"></div>
+          <div class="spinner-border text-warning"></div>
+          <div class="spinner-border text-danger"></div>
+          <div class="spinner-border text-light"></div>
+          <div class="spinner-border text-dark"></div>
+        </div>
+        <!-- 缩放加载通过spinner-grow设置样式 -->
+        <div class="col">
+          <div class="spinner-grow"></div>
+          <div class="spinner-grow text-primary"></div>
+          <div class="spinner-grow text-secondary"></div>
+          <div class="spinner-grow text-success"></div>
+          <div class="spinner-grow text-info"></div>
+          <div class="spinner-grow text-warning"></div>
+          <div class="spinner-grow text-danger"></div>
+          <div class="spinner-grow text-light"></div>
+          <div class="spinner-grow text-dark"></div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <!-- 通过m-*添加margin -->
+        <div class="col">
+          <div class="spinner-border m-5"></div>
+          <div class="spinner-grow m-5"></div>
+        </div>
+      </div>
+      <!-- 小尺寸，spinner-grow-sm，spinner-border-sm -->
+      <div class="row mt-5">
+        <div class="col">
+          <div class="spinner-grow"></div>
+          <div class="spinner-border"></div>
+          <div class="spinner-grow spinner-grow-sm"></div>
+          <div class="spinner-border spinner-border-sm"></div>
+        </div>
+        <!-- 大尺寸，通过行间样式设置宽高改变大小 -->
+        <div class="col">
+          <div
+            class="spinner-border text-info"
+            style="height: 3rem; width: 3rem;"
+          ></div>
+          <div
+            class="spinner-grow text-info"
+            style="width: 3rem; height: 3rem;"
+          ></div>
+        </div>
+      </div>
+      <!-- 按钮中的旋转加载 -->
+      <div class="row mt-5">
+        <div class="col">
+          <button class="btn btn-primary" disabled>
+            <span class="spinner-border spinner-border-sm mr-2"></span>
+            Loading...
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
